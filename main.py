@@ -41,7 +41,7 @@ class MazeAlgorithm:
         elif direction == "right":
             new_position = (x + 1, y)
         else:
-            raise ValueError("Pentti cannot go that way.")      # Very unlikely error to get in this case
+            raise ValueError("Pentti cannot go that way.")      # Very unlikely error to get in this case, but just to make sure
 
         return new_position
 
