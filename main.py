@@ -13,9 +13,9 @@ class MazeAlgorithm:
 
     ### Get the size of the complete maze
     def get_maze_size(self):
-        height = len(self.maze)
-        width = len(self.maze[0]) if self.maze else 0
-        return width, height
+        maze_height = len(self.maze)
+        maze_width = len(self.maze[0]) if self.maze else 0
+        return maze_width, maze_height
 
     ### Get Pentti's position in the maze
     def get_penttis_position(self, pentti):
@@ -51,7 +51,7 @@ class MazeAlgorithm:
         start_position = self.get_penttis_position("^")
         queue = deque([(start_position, 0)])
         visited = set([start_position])
-        width, height = self.get_maze_size()
+        maze_width, maze_height = self.get_maze_size()
 
         while queue:
             current_position, moves = queue.popleft()    # popleft() used instead of pop() to ensure 'first in first out' in the queue
@@ -69,8 +69,8 @@ class MazeAlgorithm:
 
                 ### See if the new position is valid -> if it is in the maze, if it is a wall and if it has been visited before
                 if (
-                    0 <= new_width < width
-                    and 0 <= new_height < height
+                    0 <= new_width < maze_width
+                    and 0 <= new_height < maze_height
                     and self.maze[new_height][new_width] != "#"
                     and new_position not in visited
                 ):
