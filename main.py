@@ -13,19 +13,19 @@ class MazeAlgorithm:
 
     ### Get the size of the complete maze
     def get_maze_size(self):
-        maze_height = len(self.maze)
-        maze_width = len(self.maze[0]) if self.maze else 0
+        maze_height = len(self.maze)     # Number of rows
+        maze_width = len(self.maze[0]) if self.maze else 0     # Number of columns if maze has at least one row
         return maze_width, maze_height
 
     ### Get Pentti's position in the maze
     def get_penttis_position(self, pentti):
-        width, height = self.get_maze_size()
+        maze_width, maze_height = self.get_maze_size()
         y_temp = -1
         for line in self.maze:
             y_temp += 1
             if pentti in line:
                 x = line.index(pentti)
-        y = height - y_temp
+        y = maze_height - y_temp
         return x, y
 
     ### Move Pentti to different directions. Use the previous x and y values as current position.
