@@ -65,13 +65,13 @@ class MazeAlgorithm:
             directions = ["up", "down", "left", "right"]
             for direction in directions:
                 new_position = self.move_pentti(current_position, direction)
-                new_x, new_y = new_position
+                new_width, new_height = new_position
 
                 ### See if the new position is valid -> if it is in the maze, if it is a wall and if it has been visited before
                 if (
-                    0 <= new_x < width
-                    and 0 <= new_y < height
-                    and self.maze[new_y][new_x] != "#"
+                    0 <= new_width < width
+                    and 0 <= new_height < height
+                    and self.maze[new_height][new_width] != "#"
                     and new_position not in visited
                 ):
                     queue.append((new_position, moves + 1))
